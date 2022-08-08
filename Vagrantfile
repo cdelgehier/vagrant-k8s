@@ -20,6 +20,9 @@ Vagrant.configure("2") do |config|
 
     node.vm.provision :shell, :path => "provision/docker.sh"
 
+    # all homes are mounted in vagrant box (to adjust to your own home path)
+    config.vm.synced_folder "/Users/", "/Users/"
+
     # ssh
     # node.vm.network "forwarded_port", guest_ip: "192.168.4.200", guest: 2222, host: 22
   end
